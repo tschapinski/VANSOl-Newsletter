@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+  <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypnose Ausbildung Workshop – Anmeldung</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#f5f0e8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+        .card{background:#fff;max-width:520px;width:100%;padding:60px 48px;}
+        .logo{width:80px;margin:0 auto 40px;display:block;}
+    .eyebrow{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#787d78;margin-bottom:12px;text-align:center;}
+    h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#2C2C2C;line-height:1.3;margin-bottom:12px;text-align:center;}
+    .subtitle{font-size:14px;color:#777;line-height:1.7;margin-bottom:36px;text-align:center;}
+    .divider{height:1px;background:#e6ddd3;margin:28px 0;}
+        label{display:block;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#555;margin-bottom:6px;}
+    input[type=text],input[type=email]{width:100%;padding:12px 16px;border:1px solid #e0d8d0;background:#faf8f5;font-size:14px;font-family:'Inter',sans-serif;color:#2C2C2C;outline:none;margin-bottom:20px;}
+    input[type=text]:focus,input[type=email]:focus{border-color:#787d78;}
+    .interest-label{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#555;margin-bottom:12px;display:block;}
+    .checkboxes{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+    .checkbox-item{display:flex;align-items:center;gap:12px;cursor:pointer;}
+    .checkbox-item input[type=checkbox]{width:16px;height:16px;accent-color:#787d78;cursor:pointer;flex-shrink:0;}
+    .checkbox-item span{font-size:14px;color:#444;line-height:1.4;}
+    .btn{width:100%;padding:16px;background:#787d78;color:#fff;border:none;font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;}
+        .btn:hover{background:#5e6360;}
+              .btn:disabled{background:#bbb;cursor:not-allowed;}
+        .success{text-align:center;padding:20px 0;display:none;}
+    .success .icon{font-size:40px;margin-bottom:16px;}
+    .success h2{font-family:'Playfair Display',serif;font-size:22px;color:#2C2C2C;margin-bottom:10px;}
+    .success p{font-size:14px;color:#777;line-height:1.7;}
+    .error-msg{font-size:12px;color:#c0392b;margin-top:-16px;margin-bottom:16px;display:none;}
+        .date-badge{background:#f0ede8;border-left:3px solid #787d78;padding:12px 16px;margin-bottom:28px;font-size:13px;color:#555;line-height:1.6;}
+              @media(max-width:480px){.card{padding:40px 24px;}}
+  </style>
+    </head>
+    <body>
+    <div class="card">
+      <img src="https://qtegcxhlcydjrondrzbr.supabase.co/storage/v1/object/public/vansol-media/logos/VANSOL%20Logo%20Dark.png" alt="VANSOL" class="logo" />
+      <p class="eyebrow">Kostenloser Workshop</p>
+      <h1>Hypnose als Beruf – was wirklich stimmt</h1>
+  <p class="subtitle">8. &amp; 9. April &nbsp;·&nbsp; 19:30 Uhr<br />Echte Einblicke. Keine Versprechen.</p>
+
+      <div class="date-badge">
+        📅 <strong>8. April</strong> – Wie Hypnose wirklich funktioniert<br />
+    📅 <strong>9. April</strong> – Dein Weg als Hypnose-Expertin
+      </div>
+
+      <div id="form-area">
+        <label for="first_name">Vorname</label>
+        <input type="text" id="first_name" placeholder="Dein Vorname" />
+
+        <label for="last_name">Nachname</label>
+        <input type="text" id="last_name" placeholder="Dein Nachname" />
+
+        <label for="email">E-Mail-Adresse *</label>
+        <input type="email" id="email" placeholder="deine@email.de" />
+        <div class="error-msg" id="error-msg">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+
+        <div class="divider"></div>
+
+        <span class="interest-label">Welcher Bereich interessiert dich? (optional)</span>
+        <div class="checkboxes">
+          <label class="checkbox-item">
+            <input type="checkbox" value="Hypnotische Magenband Expertin" />
+            <span>Hypnotische Magenband-Expertin</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Spirituelle Hypnose" />
+            <span>Spirituelle Hypnose</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Hypnoanalyse" />
+            <span>Hypnoanalyse</span>
+          </label>
+        </div>
+
+        <button class="btn" id="submit-btn" onclick="submitForm()">Jetzt kostenlos anmelden</button>
+  </div>
+
+  <div class="success" id="success-area">
+    <div class="icon">&#129132;</div>
+        <h2>Du bist dabei!</h2>
+        <p>Wir haben dir eine Bestätigungsmail geschickt.<br />Bis zum 8. April – ich freue mich auf dich. 🤍</p>
+      </div>
+    </div>
+
+    <script>
+    async function submitForm() {
+      const email = document.getElementById('email').value.trim();
+  const firstName = document.getElementById('first_name').value.trim();
+  const lastName = document.getElementById('last_name').value.trim();
+  const errorMsg = document.getElementById('error-msg');
+  const btn = document.getElementById('submit-btn');
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errorMsg.style.display = 'block';
+    return;
+  }
+  errorMsg.style.display = 'none';
+
+  const interests = Array.from(document.querySelectorAll('.checkboxes input:checked')).map(cb => cb.value);
+
+  btn.disabled = true;
+  btn.textContent = 'Wird angemeldet...';
+
+  try {
+    const res = await fetch('https://qtegcxhlcydjrondrzbr.supabase.co/functions/v1/ausbildung-subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, first_name: firstName, last_name: lastName, interests })
+      });
+    if (res.ok) {
+      document.getElementById('form-area').style.display = 'none';
+      document.getElementById('success-area').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Jetzt kostenlos anmelden';
+      alert('Es ist ein Fehler aufgetreten. Bitte versuche es erneut.');
+    }
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = 'Jetzt kostenlos anmelden';
+    alert('Verbindungsfehler. Bitte versuche es erneut.');
+  }
+  }
+</script>
+  </body>
+  </html>
